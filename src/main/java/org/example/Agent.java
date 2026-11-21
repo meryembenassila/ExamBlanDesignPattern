@@ -2,6 +2,7 @@ package org.example;
 
 import org.example.aspects.Cachable;
 import org.example.aspects.Log;
+import org.example.aspects.SecuredByAspect;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -40,6 +41,7 @@ public class Agent {
 
 
     //setters
+    @SecuredByAspect(roles={"ADMIN"})
     public void setStrategy(Strategy strategy) {
         this.strategy = strategy;
     }

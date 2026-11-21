@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.aspects.SecurityContext;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
@@ -106,7 +107,21 @@ public class Main {
      agent.setNom("Agent1");
 
      agent.subscribe(agent2);
+
+
+     // security aspect
+     try {
+      SecurityContext.authenticate("root","1234",new String[]{"USER"});
+      agent.setStrategy(new ScoringStratégy());
+     }catch (Exception e){
+      System.out.println(e.getMessage());
+     }
+
+
+
     }
+
+
 
 
 

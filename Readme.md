@@ -73,4 +73,8 @@ HDMI, par exemple VGA, il faudrait définir une solution
    c. Un aspect qui permet de sécuriser l’application avec un username et un mot
    de passe et avec des roles. On définira une annotation de type
    @SecuredBy(roles={"role1","role2", etc. })
-   
+
+![img_18.png](img_18.png)
+
+![img_19.png](img_19.png)
+![img_20.png](img_20.png)
