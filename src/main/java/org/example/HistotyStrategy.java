@@ -1,9 +1,10 @@
 package org.example;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HistotyStrategy implements Strategy{
-    List<Transaction> transactions;
+    List<Transaction> transactions = new ArrayList<>();
 
     @Override
     public void traiterNotification(Transaction transaction) {

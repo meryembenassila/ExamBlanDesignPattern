@@ -25,8 +25,8 @@ public class Agent {
         return id;
     }
     //afficher le nom
-    public void getNom() {
-        System.out.println( "Nom de l'agent : "+  nom);
+    public String getNom() {
+        return nom;
     }
     //afficher les transactions
     public void getTransactions() {

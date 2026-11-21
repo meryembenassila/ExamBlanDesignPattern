@@ -31,16 +31,58 @@ public class Main {
         agent1.subscribe(agent2);
         agent1.subscribe(agent3);
         agent1.addTransaction(transaction);
+
         System.out.println("\n");
         agent1.setStrategy(new ScoringStratégy());
         agent1.unsubscribe(agent2);
-        agent1.addTransaction(transaction2);
-        System.out.println("\n");
-        agent1.unsubscribe(agent3);
-        agent1.setStrategy(new HistotyStrategy());
+
         agent1.addTransaction(transaction2);
 
+        System.out.println("\n");
+        agent1.setStrategy(new HistotyStrategy());
+       agent1.unsubscribe(agent3);
+        agent1.addTransaction(transaction2);
+
+
+        //afficher le nom
+       System.out.println("Nom : "+agent1.getNom());
+
+        //afficher les transactions
+        agent1.getTransactions();
+
+        //la transaction  avec le plus grand montant
+       System.out.println("la transaction géré par l'Agent 1 avec le plus grand montant est :" +agent1.maxTransactionMontant());
+
+
+
+     Conteneur conteneur = Conteneur.getInsance();
+     //ajout
+     conteneur.addAgent(agent1);
+     conteneur.addAgent(agent2);
+     conteneur.addAgent(agent3);
+     //suppression
+     conteneur.removeAgent(agent1);
+     //recherche
+     conteneur.searchAgent("Agent1");
+
+     conteneur.setHdmi(new AfficheurHdmi1());
+     conteneur.afficher();
+     conteneur.setHdmi(new AfficheurHdmi2());
+     conteneur.afficher();
+
+     Adapter adapter = new Adapter();
+     adapter.setVga(new AfficheurVGA());
+
+
+     conteneur.setHdmi(new Adapter());
+
+     conteneur.afficher();
+
+
     }
+
+
+
 
 
 
