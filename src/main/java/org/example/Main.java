@@ -1,10 +1,15 @@
 package org.example;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+import org.springframework.context.annotation.ComponentScan;
+
+
 import java.util.Date;
 import java.util.UUID;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
+@ComponentScan(basePackages = "org.example")
+
 public class Main {
     public static void main(String[] args) {
        Transaction transaction = Transaction.builder()
@@ -24,9 +29,15 @@ public class Main {
                 .build();
 
 
-        Agent agent1 = new Agent(1L,"Agent1");
-        Agent agent2 = new Agent(2L,"Agent2");
-        Agent agent3 = new Agent(3L,"Agent3");
+        Agent agent1 = new Agent();
+        agent1.setId(1L);
+        agent1.setNom("Agent1");
+        Agent agent2 = new Agent();
+        agent2.setId(2L);
+        agent2.setNom("Agent2");
+        Agent agent3 = new Agent();
+        agent3.setId(3L);
+        agent3.setNom("Agent3");
 
         agent1.subscribe(agent2);
         agent1.subscribe(agent3);
@@ -79,6 +90,27 @@ public class Main {
      conteneur.afficher();
 
 
+    //log aspect
+
+     ApplicationContext context =
+             new AnnotationConfigApplicationContext(Main.class);
+
+
+     Strategy strategy = context.getBean(Strategy.class);
+     strategy.traiterNotification(transaction);
+
+
+     Agent agent = context.getBean(Agent.class);
+
+     agent.setId(1L);
+     agent.setNom("Agent1");
+
+     agent.subscribe(agent2);
+    }
+
+
+
+
     }
 
 
@@ -87,6 +119,3 @@ public class Main {
 
 
 
-
-
-}

@@ -1,26 +1,28 @@
 package org.example;
 
+import org.example.aspects.Log;
+import org.springframework.stereotype.Service;
+
 import java.util.ArrayList;
 import java.util.List;
 
+
+@Service
 public class Agent {
     //attributs
     private Long id;
     private String nom;
-    private List<Transaction> transactions ;
+    private List<Transaction> transactions =new ArrayList<>();
     private Strategy strategy = new DefaultStrategy();
-    private List<Agent> observateurs ;
+    private List<Agent> observateurs =new ArrayList<>();
 
     //constructeur
-    public Agent(Long id, String nom) {
-        this.id = id;
-        this.nom = nom;
-        this.transactions = new ArrayList<>();
-        this.observateurs = new ArrayList<>();
+    public Agent() {
     }
 
 
     //getters
+
     public Long getId() {
         return id;
     }
@@ -62,6 +64,7 @@ public Transaction maxTransactionMontant(){
 }
 
 //observable
+    @Log
     public void subscribe(Agent agent) {
         observateurs.add(agent);
 
@@ -77,6 +80,8 @@ public Transaction maxTransactionMontant(){
         });
     }
 
+
+
     public void addTransaction(Transaction transaction) {
         transactions.add(transaction);
         notifyObservers(transaction);
@@ -89,5 +94,10 @@ public Transaction maxTransactionMontant(){
         System.out.println("========== Notification de " + this.nom + "========== " );
         System.out.println( nom + " a passer la  transaction suivante : "+ transaction );
         System.out.println("======================================================= " );
+    }
+
+
+    public void setId(Long id) {
+        this.id = id;
     }
 }

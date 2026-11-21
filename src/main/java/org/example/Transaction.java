@@ -1,5 +1,6 @@
 package org.example;
 
+
 import java.util.Date;
 
 public class Transaction {
@@ -31,6 +32,8 @@ public class Transaction {
             return this;
         }
 
+
+
         public Transaction build(){
             return this.transaction;
         }
@@ -38,6 +41,7 @@ public class Transaction {
 
 
     }
+
     public static TransactionBuilder builder(){
         return new TransactionBuilder();
     }
