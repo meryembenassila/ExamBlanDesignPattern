@@ -1,5 +1,6 @@
 package org.example;
 
+import org.example.aspects.Cachable;
 import org.example.aspects.Log;
 import org.springframework.stereotype.Service;
 
@@ -49,7 +50,7 @@ public class Agent {
 
 
     //une opération qui calcule et retourne la transaction qui a le montant le plus grand.
-
+@Cachable
 public Transaction maxTransactionMontant(){
         int  index=0;
         double max = transactions.get(index).getMontant();

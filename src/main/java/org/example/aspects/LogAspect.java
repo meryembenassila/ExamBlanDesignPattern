@@ -16,7 +16,6 @@ import java.util.logging.Logger;
 public class LogAspect {
     Logger log= Logger.getLogger(LogAspect.class.getName());
 
-
     @Around("@annotation(org.example.aspects.Log)")
     public  Object log(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         long t1 = System.currentTimeMillis();

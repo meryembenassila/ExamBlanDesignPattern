@@ -57,7 +57,7 @@ HDMI, par exemple VGA, il faudrait définir une solution
 ## 6. Implémenter les aspect techniques :
    a. Un aspect de journalisation basé sur une annotation @Log à créer. Cet aspect
    devrait loger la durée d’exécution de chaque méthode annotée par @Log
-
+![img_16.png](img_16.png)
 ![img_14.png](img_14.png)
 ![img_15.png](img_15.png)
 ![img_13.png](img_13.png)
@@ -67,6 +67,8 @@ HDMI, par exemple VGA, il faudrait définir une solution
    b. Un aspect qui permet de définir un cache basé sur une annotation
    @Cachable. Cet aspect devrait être appliqué à la méthode de l’agent qui
    permet de retourner la transaction qui le plus grand montant.
+
+![img_17.png](img_17.png)
 
    c. Un aspect qui permet de sécuriser l’application avec un username et un mot
    de passe et avec des roles. On définira une annotation de type
