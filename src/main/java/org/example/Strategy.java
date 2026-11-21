@@ -1,4 +1,5 @@
 package org.example;
 
-public class Strategy {
+public interface Strategy {
+    void traiterNotification(Transaction transaction);
 }
